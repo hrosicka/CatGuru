@@ -1,5 +1,6 @@
 # Cat Guru
 Bored? Ask Cat Guru for a random cat fact and be amazed! Based on Cat Facts API: https://catfact.ninja/fact
+The application was created using the Tkinter framework and icons / pictures using Figma. 
 
 ## User Documentation
 Cat Guru is a desktop application that generates random cat facts and allows users to change the background and avatar.
