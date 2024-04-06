@@ -15,10 +15,10 @@ Cat Guru is a desktop application that generates random cat facts and allows use
   
    ![](https://github.com/hrosicka/CatGuru/blob/master/Doc/CatGuruDoc1.png)
   
-- "Change Avatar" button: Displays a list of available avatars and allows you to choose a new one.
+- "Change Avatar" button: Allows you to choose a new one avatar.
   
    ![](https://github.com/hrosicka/CatGuru/blob/master/Doc/CatGuruDoc2.png)
   
-- "Change Background" button: Displays a list of available background colors and allows you to choose a new one.
+- "Change Background" button: Allows you to choose a new one background.
 
    ![](https://github.com/hrosicka/CatGuru/blob/master/Doc/CatGuruDoc3.png)
