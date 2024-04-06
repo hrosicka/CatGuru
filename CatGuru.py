@@ -1,3 +1,4 @@
+import os
 from ctypes import windll
 import tkinter as tk
 from PIL import Image, ImageTk
@@ -9,11 +10,18 @@ windll.shcore.SetProcessDpiAwareness(1)
 # API endpoint for fetching cat facts
 URL_CAT_FACT = "https://catfact.ninja/fact"
 
+# relative paths
+dirname = os.path.dirname(__file__)
+
+
 # List of available cat avatars
 AVATARS = [
-    "CatGuru\\cat1.png",
-    "CatGuru\\cat2.png",
-    "CatGuru\\cat3.png",
+    os.path.join(dirname, "cat1.png"),
+    os.path.join(dirname, "cat2.png"),
+    os.path.join(dirname, "cat3.png"),
+    os.path.join(dirname, "cat4.png"),
+    os.path.join(dirname, "cat5.png"),
+    os.path.join(dirname, "cat6.png"),
 ]
 
 # Background color options for the app
@@ -30,6 +38,10 @@ class CatGuru:
         self.window = tk.Tk()
         self.window.title("My Cat Guru")
         self.window.geometry("480x480")
+
+        ico = Image.open(os.path.join(dirname, 'icon.jpg'))
+        photo = ImageTk.PhotoImage(ico)
+        self.window.wm_iconphoto(False, photo)
 
         # Set initial background color
         self.background_color_index = 0
