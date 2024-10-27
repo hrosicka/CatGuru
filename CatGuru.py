@@ -45,6 +45,9 @@ class CatGuru:
         photo = ImageTk.PhotoImage(ico)
         self.window.wm_iconphoto(False, photo)
 
+        self.avatar_cache = {}  # Empty dictionary for avatar cache
+        self.cat_fact_url = "https://catfact.ninja/fact"
+
         # Set initial background color
         self.background_color_index = 0
         self.background_color = BACKGROUND_COLORS[self.background_color_index]
@@ -53,7 +56,7 @@ class CatGuru:
 
         # Set initial cat avatar
         self.avatar_index = 0
-        self.avatar_image = self.get_image(AVATARS[self.avatar_index])
+        self.avatar_image = self.load_avatar_image(AVATARS[self.avatar_index])
         self.avatar_label = tk.Label(self.window, image=self.avatar_image)                 
 
         self.avatar_label.pack(padx=20, pady=20)
@@ -109,14 +112,19 @@ class CatGuru:
         Hovertip(self.avatar_button, self.avatar_button_tooltip)
         Hovertip(self.background_button, self.background_button_tooltip)
 
+    def get_cat_fact(self):
+        try:
+            response = requests.get(self.cat_fact_url)
+            response.raise_for_status()  # Raise exception for non-200 status codes
+            data = response.json()
+            return data["fact"]
+        except requests.exceptions.RequestException as e:
+            print(f"Error fetching cat fact: {e}")  # Log the error
+            return "Failed to retrieve cat fact!"  # User-friendly message
 
     def show_wisdom(self):
-        # Get a random cat fact from the API
-        response = requests.get(URL_CAT_FACT)
-        data = response.json()
-
         # Split the text into multiple lines for better readability
-        wisdom_text = data["fact"]
+        wisdom_text = self.get_cat_fact()
         max_length = 45  # Maximum characters per line
         lines = []
         for word in wisdom_text.split():
@@ -135,7 +143,7 @@ class CatGuru:
         self.avatar_index = (self.avatar_index + 1) % len(AVATARS)
 
         # Load and display new avatar
-        self.avatar_image = self.get_image(AVATARS[self.avatar_index])
+        self.avatar_image = self.load_avatar_image(AVATARS[self.avatar_index])
         self.avatar_label.config(image=self.avatar_image)
 
     def change_background(self):
@@ -147,12 +155,13 @@ class CatGuru:
         self.background_label.config(bg=self.background_color)
         self.wisdom_label.config(bg=self.background_color)
 
-    def get_image(self, filename):
+    def load_avatar_image(self, filename):
         # Load image and resize it for GUI
-        image = Image.open(filename)
-        image = image.resize((200, 200))
-        photo = ImageTk.PhotoImage(image)
-        return photo
+        if filename not in self.avatar_cache:
+            image = Image.open(filename)
+            image = image.resize((200, 200))
+            self.avatar_cache[filename] = ImageTk.PhotoImage(image)
+        return self.avatar_cache[filename]
 
 # Run the app
 cat_guru = CatGuru()
