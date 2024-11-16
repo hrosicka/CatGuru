@@ -98,8 +98,8 @@ class CatGuru:
         try:
             response = requests.get(self.cat_fact_url)
             response.raise_for_status()  # Raise exception for non-200 status codes
-            data = response.json()
-            return data["fact"]
+            cat_fact_data = response.json()
+            return cat_fact_data["fact"]
         except requests.exceptions.RequestException as e:
             if isinstance(e, requests.exceptions.ConnectionError):
                 error_message = "Failed to connect to the server. Please check your internet connection."
