@@ -101,9 +101,14 @@ class CatGuru:
             data = response.json()
             return data["fact"]
         except requests.exceptions.RequestException as e:
-            # Log the error instead of printing it to the console
-            logging.error(f"Error fetching cat fact: {e}")
-            return "Failed to retrieve cat fact!"  # User-friendly message
+            if isinstance(e, requests.exceptions.ConnectionError):
+                error_message = "Failed to connect to the server. Please check your internet connection."
+            elif isinstance(e, requests.exceptions.Timeout):
+                error_message = "Request timed out. Please try again later."
+            else:
+                error_message = f"An unexpected error occurred: {str(e)}"
+            logging.error(error_message)
+            return error_message
 
     def show_wisdom(self):
         # Split the text into multiple lines for better readability
