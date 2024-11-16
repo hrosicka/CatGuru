@@ -5,6 +5,13 @@ from PIL import Image, ImageTk
 from idlelib.tooltip import Hovertip
 import requests
 from config import *
+import logging
+
+# Basic logging configuration
+logging.basicConfig(filename='cat_guru.log', 
+                    level=logging.INFO,
+                    format='%(asctime)s - %(levelname)s - %(message)s'
+                    )
 
 # Enhance DPI awareness for better scaling on high-DPI displays
 windll.shcore.SetProcessDpiAwareness(1)
@@ -94,7 +101,8 @@ class CatGuru:
             data = response.json()
             return data["fact"]
         except requests.exceptions.RequestException as e:
-            print(f"Error fetching cat fact: {e}")  # Log the error
+            # Log the error instead of printing it to the console
+            logging.error(f"Error fetching cat fact: {e}")
             return "Failed to retrieve cat fact!"  # User-friendly message
 
     def show_wisdom(self):
