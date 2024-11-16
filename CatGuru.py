@@ -1,38 +1,13 @@
-import os
 from ctypes import windll
 import tkinter as tk
 import customtkinter
 from PIL import Image, ImageTk
 from idlelib.tooltip import Hovertip
 import requests
+from config import *
 
 # Enhance DPI awareness for better scaling on high-DPI displays
 windll.shcore.SetProcessDpiAwareness(1)
-
-# API endpoint for fetching cat facts
-URL_CAT_FACT = "https://catfact.ninja/fact"
-
-# relative paths
-dirname = os.path.dirname(__file__)
-
-
-# List of available cat avatars
-AVATARS = [
-    os.path.join(dirname, "cat1.png"),
-    os.path.join(dirname, "cat2.png"),
-    os.path.join(dirname, "cat3.png"),
-    os.path.join(dirname, "cat4.png"),
-    os.path.join(dirname, "cat5.png"),
-    os.path.join(dirname, "cat6.png"),
-]
-
-# Background color options for the app
-BACKGROUND_COLORS = [
-  "lightblue",  # Light blue
-  "lightgrey",  # Light grey
-  "lightgoldenrod", # Light goldenrod
-  "pink", # Pink
-]
 
 class CatGuru:
     def __init__(self):
