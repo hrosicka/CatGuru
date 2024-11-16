@@ -24,3 +24,8 @@ Cat Guru is a desktop application that generates random cat facts and allows use
 - "Change Background" button: Allows you to choose a new one background.
 
    ![](https://github.com/hrosicka/CatGuru/blob/master/Doc/CatGuruDoc3.png)
+
+## Improving Error Handling with Specific Messages
+- To provide more informative error messages, the get_cat_fact function handles specific exceptions and return tailored messages. Logging is used. The file cat_guru.log is created.
+
+  ![](https://github.com/hrosicka/CatGuru/blob/master/Doc/FailedConnection.png)
