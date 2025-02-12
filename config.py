@@ -14,6 +14,8 @@ AVATARS = [
     os.path.join(dirname, "cat4.png"),
     os.path.join(dirname, "cat5.png"),
     os.path.join(dirname, "cat6.png"),
+    os.path.join(dirname, "cat7.png"),
+    os.path.join(dirname, "cat8.png"),
 ]
 
 # Background color options for the app
