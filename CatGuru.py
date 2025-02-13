@@ -6,6 +6,7 @@ from idlelib.tooltip import Hovertip
 import requests
 from config import *
 import logging
+import random
 
 # Basic logging configuration
 logging.basicConfig(filename='cat_guru.log', 
@@ -37,7 +38,7 @@ class CatGuru:
         self.background_label.place(x=0, y=0, relwidth=1, relheight=1)  # Cover entire window
 
         # Set initial cat avatar
-        self.avatar_index = 0
+        self.avatar_index = random.randint(0, len(AVATARS) - 1)  # Choose a random index
         self.avatar_image = self.load_avatar_image(AVATARS[self.avatar_index])
         self.avatar_label = tk.Label(self.window, image=self.avatar_image)                 
 
