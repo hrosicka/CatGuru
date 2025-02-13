@@ -26,3 +26,9 @@ BACKGROUND_COLORS = [
   "lightgoldenrod", # Light goldenrod
   "pink", # Pink
 ]
+
+# log file
+LOG_FILE = 'cat_guru.log'
+
+# max. wisdom line length
+MAX_WISDOM_LINE_LENGTH = 45

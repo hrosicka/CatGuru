@@ -9,7 +9,7 @@ import logging
 import random
 
 # Basic logging configuration
-logging.basicConfig(filename='cat_guru.log', 
+logging.basicConfig(filename=LOG_FILE, 
                     level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s'
                     )
@@ -114,11 +114,10 @@ class CatGuru:
     def show_wisdom(self):
         # Split the text into multiple lines for better readability
         wisdom_text = self.get_cat_fact()
-        max_length = 45  # Maximum characters per line
         lines = []
         for word in wisdom_text.split():
             if lines:  # Check if lines is not empty
-                if len(" ".join(lines[-1:])) + len(word) > max_length:
+                if len(" ".join(lines[-1:])) + len(word) > MAX_WISDOM_LINE_LENGTH:
                     lines.append("")
             else:
                 lines.append("")  # Add empty string if lines is empty
