@@ -63,3 +63,10 @@ Cat Guru is a desktop application that generates random cat facts and allows use
 - To provide more informative error messages, the get_cat_fact function handles specific exceptions and return tailored messages. Logging is used. The file cat_guru.log is created.
 
   ![](https://github.com/hrosicka/CatGuru/blob/master/Doc/FailedConnection.png)
+
+## Author
+Lovingly crafted by [Hanka Robovska](https://github.com/hrosicka) 👩‍🔬
+
+## License
+MIT – Free to use, modify, and distribute as needed.
+
