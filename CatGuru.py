@@ -1,9 +1,17 @@
-from ctypes import windll
+# --- DPI Awareness Enhancement ---
+# Improves scaling of the Tkinter window on high-DPI displays (e.g., 4K monitors)
+# to prevent blurry text and improperly sized elements on Windows.
+try:
+    from ctypes import windll
+    windll.shcore.SetProcessDpiAwareness(1)
+except (ImportError, AttributeError):
+    pass
+
+from api_client import CatFactClient
 import tkinter as tk
 import customtkinter
 from PIL import Image, ImageTk
 from idlelib.tooltip import Hovertip
-import requests
 import os
 from config import * # Assumes 'config.py' exists and defines LOG_FILE, BACKGROUND_COLORS, AVATARS, MAX_WISDOM_LINE_LENGTH, dirname
 import logging
@@ -16,15 +24,6 @@ logging.basicConfig(filename=LOG_FILE,
                     level=logging.INFO, # Set logging level to INFO, capturing INFO, WARNING, ERROR, CRITICAL messages.
                     format='%(asctime)s - %(levelname)s - %(message)s' # Define the log message format.
                     )
-
-# --- DPI Awareness Enhancement ---
-# Improves scaling of the Tkinter window on high-DPI displays (e.g., 4K monitors)
-# to prevent blurry text and improperly sized elements on Windows.
-try:
-    from ctypes import windll
-    windll.shcore.SetProcessDpiAwareness(1)
-except (ImportError, AttributeError):
-    pass
 
 # --- CatGuru Application Class ---
 class CatGuru:
@@ -50,6 +49,7 @@ class CatGuru:
         # --- Data & API Initialization ---
         self.avatar_cache = {}  # Cache to store loaded avatar images to prevent reloading.
         self.cat_fact_url = "https://catfact.ninja/fact" # API endpoint for cat facts.
+        self.cat_client = CatFactClient()
 
         # --- Background Setup ---
         # Initialize the background color and index.
@@ -123,29 +123,6 @@ class CatGuru:
         Hovertip(self.avatar_button, self.avatar_button_tooltip)
         Hovertip(self.background_button, self.background_button_tooltip)
 
-    # --- API Interaction Methods ---
-    def get_cat_fact(self):
-        """
-        Fetches a random cat fact from the 'catfact.ninja' API.
-        Handles various network-related exceptions (connection errors, timeouts).
-        Logs errors and returns an informative message if fetching fails.
-        """
-        try:
-            response = requests.get(self.cat_fact_url)
-            response.raise_for_status()  # Raises an HTTPError for bad responses (4xx or 5xx).
-            cat_fact_data = response.json()
-            return cat_fact_data["fact"]
-        except requests.exceptions.RequestException as e:
-            # Differentiate common network errors for more specific user feedback.
-            if isinstance(e, requests.exceptions.ConnectionError):
-                error_message = "Failed to connect to the server. Please check your internet connection."
-            elif isinstance(e, requests.exceptions.Timeout):
-                error_message = "Request timed out. Please try again later."
-            else:
-                error_message = f"An unexpected error occurred: {str(e)}"
-            logging.error(error_message) # Log the error for debugging.
-            return error_message # Return the error message to be displayed in the GUI.
-
     # --- GUI Update Methods ---
     def show_wisdom(self):
         """
@@ -153,7 +130,10 @@ class CatGuru:
         for better readability within the wisdom_label,
         respecting MAX_WISDOM_LINE_LENGTH from config.py.
         """
-        wisdom_text = self.get_cat_fact()
+        self.wisdom_label.config(text="Loading... 🐱")  # ✅ PŘIDEJ TUTO LINKU
+        self.window.update()  # ✅ PŘIDEJ TUTO LINKU
+        
+        wisdom_text = self.cat_client.fetch_fact()  # ✅ ZMĚŇ NA TOTO
         lines = []
         current_line = ""
         # Iterate through words to build lines that fit the max length.
