@@ -1,5 +1,5 @@
 # ==========================================
-# Python - cache soubory a kompilovaný kód
+# Python - Cache files and compiled code
 # ==========================================
 __pycache__/
 *.py[cod]
@@ -8,7 +8,7 @@ __pycache__/
 .Python
 
 # ==========================================
-# Virtuální prostředí (Zásadní věc!)
+# Virtual environments
 # ==========================================
 venv/
 env/
@@ -17,7 +17,7 @@ ENV/
 .venv
 
 # ==========================================
-# Distribuce, balíčkování a buildy
+# Distribution, packaging, and builds
 # ==========================================
 build/
 develop-eggs/
@@ -38,15 +38,16 @@ share/python-wheels/
 MANIFEST
 
 # ==========================================
-# Testování a pokrytí kódu (Pytest, Coverage)
+# Testing, coverage, and logs
 # ==========================================
 .pytest_cache/
 .coverage
 htmlcov/
 .pypy_cache/
+*.log
 
 # ==========================================
-# Systémový balast (Windows / macOS)
+# System junk (Windows / macOS)
 # ==========================================
 *.DS_Store
 Thumbs.db
