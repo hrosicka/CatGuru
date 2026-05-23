@@ -125,35 +125,28 @@ class CatGuru:
 
     # --- GUI Update Methods ---
     def show_wisdom(self):
-        """
-        Retrieves a cat fact and formats it into multiple lines
-        for better readability within the wisdom_label,
-        respecting MAX_WISDOM_LINE_LENGTH from config.py.
-        """
-        self.wisdom_label.config(text="Loading... 🐱")  # ✅ PŘIDEJ TUTO LINKU
-        self.window.update()  # ✅ PŘIDEJ TUTO LINKU
+        """Fetch and display wisdom with user feedback."""
+        self.wisdom_label.config(text="Loading... 🐱")
+        self.window.update()  # Refresh UI immediately
         
-        wisdom_text = self.cat_client.fetch_fact()  # ✅ ZMĚŇ NA TOTO
+        wisdom_text = self.cat_client.fetch_fact()
+        lines = self._format_text(wisdom_text)
+        self.wisdom_label.config(text="\n".join(lines))
+        
+    def _format_text(self, text):
+        """Helper method to format text."""
         lines = []
         current_line = ""
-        # Iterate through words to build lines that fit the max length.
-        for word in wisdom_text.split():
-            # Check if adding the next word exceeds the line length limit.
-            # (1 if current_line else 0) accounts for the space before the word.
+        for word in text.split():
             if len(current_line) + len(word) + (1 if current_line else 0) > MAX_WISDOM_LINE_LENGTH:
-                if current_line: # If there's content in current_line, add it to lines.
-                    lines.append(current_line.strip())
-                current_line = word # Start a new line with the current word.
-            else:
-                # Add word to current line, with a space if it's not the first word.
                 if current_line:
-                    current_line += " " + word
-                else:
-                    current_line = word
-        if current_line: # Add any remaining text as the last line.
+                    lines.append(current_line.strip())
+                current_line = word
+            else:
+                current_line += (" " + word) if current_line else word
+        if current_line:
             lines.append(current_line.strip())
-
-        self.wisdom_label.config(text="\n".join(lines)) # Update the label with the formatted text.
+        return lines
 
     def change_avatar(self):
         """
