@@ -20,7 +20,11 @@ logging.basicConfig(filename=LOG_FILE,
 # --- DPI Awareness Enhancement ---
 # Improves scaling of the Tkinter window on high-DPI displays (e.g., 4K monitors)
 # to prevent blurry text and improperly sized elements on Windows.
-windll.shcore.SetProcessDpiAwareness(1)
+try:
+    from ctypes import windll
+    windll.shcore.SetProcessDpiAwareness(1)
+except (ImportError, AttributeError):
+    pass
 
 # --- CatGuru Application Class ---
 class CatGuru:
