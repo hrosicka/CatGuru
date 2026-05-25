@@ -2,7 +2,7 @@
 
 <p align="center">
   <!-- License -->
-  <a href="https://github.com/hrosicka/CatGuru/blob/main/LICENSE">
+  <a href="https://github.com/hrosicka/CatGuru/blob/master/LICENSE">
     <img src="https://img.shields.io/github/license/hrosicka/CatGuru?color=blue" alt="License">
   </a>
   <!-- Issues -->
