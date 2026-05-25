@@ -30,6 +30,8 @@
   <!-- Watchers -->
   <a href="https://github.com/hrosicka/CatGuru/watchers">
     <img src="https://img.shields.io/github/watchers/hrosicka/CatGuru?style=social" alt="Watchers">
+  <a href="https://github.com/hrosicka/CatGuru/actions/workflows/tests.yml">
+    <img src="https://github.com/hrosicka/CatGuru/actions/workflows/tests.yml/badge.svg" alt="Tests">
   </a>
 </p>
 
