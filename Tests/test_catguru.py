@@ -16,9 +16,7 @@ class TestCatFactClient(unittest.TestCase):
         """Test successful API call."""
         client = CatFactClient()
         with patch("requests.get") as mock_get:
-            mock_get.return_value.json.return_value = {
-                "fact": "Cats are amazing"
-            }
+            mock_get.return_value.json.return_value = {"fact": "Cats are amazing"}
             result = client.fetch_fact()
 
             # In unittest, use self.assertEqual instead of a bare assert
