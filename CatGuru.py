@@ -14,7 +14,13 @@ import customtkinter
 from PIL import Image, ImageTk
 from idlelib.tooltip import Hovertip
 import os
-from config import *  # Assumes 'config.py' exists and defines LOG_FILE, BACKGROUND_COLORS, AVATARS, MAX_WISDOM_LINE_LENGTH, dirname
+from config import (
+    AVATARS,
+    BACKGROUND_COLORS,
+    LOG_FILE,
+    MAX_WISDOM_LINE_LENGTH,
+    dirname,
+)
 import logging
 import random
 
@@ -51,7 +57,9 @@ class CatGuru:
         self.window.wm_iconphoto(False, photo)
 
         # --- Data & API Initialization ---
-        self.avatar_cache = {}  # Cache to store loaded avatar images to prevent reloading.
+        self.avatar_cache = (
+            {}
+        )  # Cache to store loaded avatar images to prevent reloading.
         self.cat_fact_url = "https://catfact.ninja/fact"  # API endpoint for cat facts.
         self.cat_client = CatFactClient()
 
