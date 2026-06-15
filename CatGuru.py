@@ -57,9 +57,7 @@ class CatGuru:
         self.window.wm_iconphoto(False, photo)
 
         # --- Data & API Initialization ---
-        self.avatar_cache = (
-            {}
-        )  # Cache to store loaded avatar images to prevent reloading.
+        self.avatar_cache = {}  # Cache to store loaded avatar images to prevent reloading.
         self.cat_fact_url = "https://catfact.ninja/fact"  # API endpoint for cat facts.
         self.cat_client = CatFactClient()
 
