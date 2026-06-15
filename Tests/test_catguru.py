@@ -11,7 +11,6 @@ from api_client import CatFactClient
 
 
 class TestCatFactClient(unittest.TestCase):
-
     def test_cat_fact_client_success(self):
         """Test successful API call."""
         client = CatFactClient()
