@@ -1,39 +1,46 @@
 # Cat Guru
 
-<p align="center">
-  <!-- License -->
-  <a href="https://github.com/hrosicka/CatGuru/blob/master/LICENSE">
-    <img src="https://img.shields.io/github/license/hrosicka/CatGuru" alt="License">
-  </a>
-  <!-- Issues -->
-  <a href="https://github.com/hrosicka/CatGuru/issues">
-    <img src="https://img.shields.io/github/issues/hrosicka/CatGuru?logo=github" alt="Open Issues">
-  </a>
-  <!-- Pull Requests -->
-  <a href="https://github.com/hrosicka/CatGuru/pulls">
-    <img src="https://img.shields.io/github/issues-pr/hrosicka/CatGuru?logo=github" alt="Pull Requests">
-  </a>
-  <!-- Repo Size -->
-  <img src="https://img.shields.io/github/repo-size/hrosicka/CatGuru?color=blueviolet" alt="Repo Size">
-  <!-- Last Commit -->
-  <img src="https://img.shields.io/github/last-commit/hrosicka/CatGuru?logo=github" alt="Last Commit">
-  <!-- Top Language -->
-  <img src="https://img.shields.io/github/languages/top/hrosicka/CatGuru?logo=code" alt="Top Language">
-  <!-- Stars -->
-  <a href="https://github.com/hrosicka/CatGuru/stargazers">
-    <img src="https://img.shields.io/github/stars/hrosicka/CatGuru?style=social" alt="Stars">
-  </a>
-  <!-- Forks -->
-  <a href="https://github.com/hrosicka/CatGuru/network/members">
-    <img src="https://img.shields.io/github/forks/hrosicka/CatGuru?style=social" alt="Forks">
-  </a>
-  <!-- Watchers -->
-  <a href="https://github.com/hrosicka/CatGuru/watchers">
-    <img src="https://img.shields.io/github/watchers/hrosicka/CatGuru?style=social" alt="Watchers">
+<div align="center">
+
   <a href="https://github.com/hrosicka/CatGuru/actions/workflows/tests.yml">
-    <img src="https://github.com/hrosicka/CatGuru/actions/workflows/tests.yml/badge.svg" alt="Tests">
+    <img src="https://img.shields.io/github/actions/workflow/status/hrosicka/CatGuru/tests.yml?style=for-the-badge&color=4F8EF7&label=Tests&logo=githubactions&logoColor=white" alt="Tests" />
   </a>
-</p>
+  <a href="https://github.com/hrosicka/CatGuru/stargazers">
+    <img src="https://img.shields.io/github/stars/hrosicka/CatGuru?style=for-the-badge&color=4F8EF7&logo=starship&logoColor=white" alt="Stars" />
+  </a>
+  <a href="https://github.com/hrosicka/CatGuru/network/members">
+    <img src="https://img.shields.io/github/forks/hrosicka/CatGuru?style=for-the-badge&color=4F8EF7&logo=git&logoColor=white" alt="Forks" />
+  </a>
+  <a href="https://github.com/hrosicka/CatGuru/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/hrosicka/CatGuru?style=for-the-badge&color=4F8EF7&logo=github&logoColor=white" alt="Contributors" />
+  </a>
+  <a href="https://github.com/hrosicka/CatGuru/commits/master">
+    <img src="https://img.shields.io/github/last-commit/hrosicka/CatGuru?style=for-the-badge&color=6366F1&logo=githubactions&logoColor=white" alt="Last Commit" />
+  </a>
+  <a href="https://github.com/hrosicka/CatGuru/issues">
+    <img src="https://img.shields.io/github/issues/hrosicka/CatGuru?style=for-the-badge&color=F59E0B&logo=github&logoColor=white" alt="Issues" />
+  </a>
+  <a href="https://github.com/hrosicka/CatGuru/pulls">
+    <img src="https://img.shields.io/github/issues-pr/hrosicka/CatGuru?style=for-the-badge&color=F59E0B&logo=github&logoColor=white" alt="Pull Requests" />
+  </a>
+  <br/>
+
+  <a href="https://www.python.org/">
+    <img src="https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=FFE873" alt="Python" />
+  </a>
+  <img src="https://img.shields.io/badge/GUI-Tkinter-0EA5E9?style=for-the-badge&logo=python&logoColor=white" alt="Tkinter GUI" />
+  <a href="https://catfact.ninja/fact">
+    <img src="https://img.shields.io/badge/API-Cat%20Facts-F97316?style=for-the-badge&logo=fastapi&logoColor=white" alt="API: Cat Facts" />
+  </a>
+  <img src="https://img.shields.io/badge/Design-Figma-EC4899?style=for-the-badge&logo=figma&logoColor=white" alt="Figma Design" />
+  <img src="https://img.shields.io/github/repo-size/hrosicka/CatGuru?style=for-the-badge&color=3B82F6&logo=files&logoColor=white" alt="Repo Size" />
+  <br/>
+
+  <a href="https://github.com/hrosicka/CatGuru/blob/master/LICENSE">
+    <img src="https://img.shields.io/github/license/hrosicka/CatGuru?style=for-the-badge&color=10B981&logo=opensourceinitiative&logoColor=white" alt="License" />
+  </a>
+
+</div>
 
 Bored? Ask Cat Guru for a random cat fact and be amazed! Based on Cat Facts API: https://catfact.ninja/fact
 
