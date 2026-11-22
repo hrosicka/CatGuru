@@ -1,5 +1,6 @@
-import requests
 import logging
+
+import requests
 
 
 class CatFactClient:
@@ -26,4 +27,4 @@ class CatFactClient:
                 return "No internet connection. Check your network."
             except Exception as e:
                 logging.error(f"Error: {e}")
-                return f"Error: {str(e)}"
+                return f"Error: {e!s}"
