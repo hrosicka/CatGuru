@@ -8,21 +8,17 @@ try:
 except (ImportError, AttributeError):
     pass
 
-from api_client import CatFactClient
+import logging
+import os
+import random
 import tkinter as tk
+from idlelib.tooltip import Hovertip
+
 import customtkinter
 from PIL import Image, ImageTk
-from idlelib.tooltip import Hovertip
-import os
-from config import (
-    AVATARS,
-    BACKGROUND_COLORS,
-    LOG_FILE,
-    MAX_WISDOM_LINE_LENGTH,
-    dirname,
-)
-import logging
-import random
+
+from api_client import CatFactClient
+from config import AVATARS, BACKGROUND_COLORS, LOG_FILE, MAX_WISDOM_LINE_LENGTH, dirname
 
 # --- Logging Configuration ---
 # Basic logging setup to record application events and errors.
